@@ -1,8 +1,12 @@
+import { useState } from 'react';
+
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm';
 
 
 function NewExpense(props) {
+
+    const [isExpenseFormOpen, setExpenseFormToggle] = useState(false);
 
     const saveExpenseDataHandler = (enteredExpenseData) => {
         
@@ -14,9 +18,20 @@ function NewExpense(props) {
         props.onAddExpense(expenseData);
     };
 
+    const handleTogglePanel = () => {
+        setExpenseFormToggle(!isExpenseFormOpen);
+    };
+
     return (
         <div className="new-expense">
-            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+            {
+                isExpenseFormOpen ?
+                    <ExpenseForm 
+                        onSaveExpenseData={saveExpenseDataHandler} 
+                        onToggle={handleTogglePanel}
+                    />
+                    : <button onClick={handleTogglePanel}>Add new expense</button>
+            }
         </div>
     )
 }
