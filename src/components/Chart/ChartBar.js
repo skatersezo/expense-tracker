@@ -11,7 +11,7 @@ function ChartBar(props) {
     return (
         <div className="char-bar">
             <div className="char-bar__inner">
-                <div className="char-bar__fill">
+                <div className="char-bar__fill" style={{height: barFillHeigth}}>
 
                 </div>
             </div>
