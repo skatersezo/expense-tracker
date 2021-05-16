@@ -20,7 +20,8 @@ function Expenses(props) {
             onFilterExpenses={filterExpensesHandler}
         />
         {
-            props.items.map(expense => {
+            props.items.filter(expense => expense.date.getFullYear().toString() === filteredYear)
+            .map(expense => {
                 return (
                     <ExpenseItem
                     key={expense.id} 
