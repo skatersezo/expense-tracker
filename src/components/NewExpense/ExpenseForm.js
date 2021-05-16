@@ -57,10 +57,6 @@ function ExpenseForm(props) {
         props.onToggle();
     };
 
-    const handleCancel = () => {
-        props.onToggle();
-    }
-
     return (
         <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
@@ -94,7 +90,7 @@ function ExpenseForm(props) {
                 </div>
             </div>
             <div className="new-expense__actions">
-                <button type='button' onClick={handleCancel}>Cancel</button>
+                <button type='button' onClick={props.onToggle}>Cancel</button>
                 <button type='submit'>Add expense</button>
             </div>
         </form>
