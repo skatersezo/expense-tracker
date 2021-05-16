@@ -39,10 +39,17 @@ function App() {
     });
   };
 
+  const filterExpensesHandler = (filter) => {
+    console.log(`Filter applied for year ${filter}`);
+  }
+
   return (
     <div>
         <NewExpense onAddExpense={addExpenseHandler} />
-        <Expenses items={expenses.items} />
+        <Expenses 
+          items={expenses.items} 
+          onFilter={filterExpensesHandler}
+        />
     </div>
   );
 }
